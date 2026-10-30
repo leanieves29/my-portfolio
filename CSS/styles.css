@@ -1,0 +1,288 @@
+/* Lea Nieves portfolio styles
+   Plain CSS, no frameworks or external resources. */
+ 
+/* ---------- Theme colors ---------- */
+:root {
+  --bg: #F8FAFC;
+  --text: #0F172A;
+  --card: #FFFFFF;
+  --accent: #7058df;
+  --accent-text: #7058df;   /* accent used for text on the page background */
+  --on-accent: #FFFFFF;     /* text placed on top of the accent color */
+  --border: #E2E8F0;
+  --muted: #475569;
+  color-scheme: light;
+}
+ 
+:root[data-theme="dark"] {
+  --bg: #0F172A;
+  --text: #F8FAFC;
+  --card: #1E293B;
+  --accent: #7058df;
+  --accent-text: #B4A8F7;   /* lighter tint of the accent so text stays readable on dark */
+  --on-accent: #FFFFFF;
+  --border: #334155;
+  --muted: #CBD5E1;
+  color-scheme: dark;
+}
+ 
+/* If JavaScript has not set a theme yet, follow the system setting */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0F172A;
+    --text: #F8FAFC;
+    --card: #1E293B;
+    --accent-text: #B4A8F7;
+    --border: #334155;
+    --muted: #CBD5E1;
+    color-scheme: dark;
+  }
+}
+ 
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+ 
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+ 
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+ 
+h1 { font-size: clamp(2rem, 6vw, 3.25rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+h3 { font-size: 1.15rem; }
+ 
+p { margin: 0 0 1rem; }
+ 
+a {
+  color: var(--accent-text);
+}
+ 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+.container {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+ 
+.narrow {
+  max-width: 44rem;
+}
+ 
+/* ---------- Keyboard focus ---------- */
+:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+ 
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  z-index: 100;
+}
+ 
+.skip-link:focus {
+  top: 1rem;
+}
+ 
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+ 
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+ 
+.brand {
+  font-weight: 700;
+}
+ 
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+ 
+.nav-list a {
+  display: inline-block;
+  padding: 0.5rem 0.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+ 
+.nav-list a:hover {
+  color: var(--accent-text);
+  text-decoration: underline;
+}
+ 
+/* ---------- Theme button ---------- */
+.theme-toggle {
+  font: inherit;
+  font-size: 0.95rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  cursor: pointer;
+}
+ 
+.theme-toggle:hover {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+ 
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4rem 0 3rem;
+}
+ 
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--accent-text);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+ 
+.lead {
+  font-size: 1.2rem;
+  max-width: 36rem;
+  color: var(--muted);
+}
+ 
+.button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+}
+ 
+.button:hover {
+  filter: brightness(1.1);
+}
+ 
+/* ---------- Sections ---------- */
+.section {
+  padding: 3rem 0;
+}
+ 
+/* ---------- Cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* one column on phones */
+  gap: 1.5rem;
+}
+ 
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+ 
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+ 
+.card p:last-child {
+  margin-bottom: 0;
+}
+ 
+.tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.15rem 0.65rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+}
+ 
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+ 
+.site-footer p {
+  margin: 0;
+}
+ 
+/* ---------- Desktop: cards in a grid ---------- */
+@media (min-width: 48rem) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+ 
+  .hero {
+    padding: 6rem 0 4rem;
+  }
+ 
+  .section {
+    padding: 4rem 0;
+  }
+}
+ 
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+ 
+  body {
+    transition: none;
+  }
+}
+ 
