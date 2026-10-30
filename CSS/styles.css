@@ -3,12 +3,12 @@
  
 /* ---------- Theme colors ---------- */
 :root {
-  --bg: #F8FAFC;
-  --text: #0F172A;
-  --card: #FFFFFF;
-  --accent: #7058df;
-  --accent-text: #7058df;   /* accent used for text on the page background */
-  --on-accent: #FFFFFF;     /* text placed on top of the accent color */
+  --bg: #B6A593;
+  --text: #B5BDAC;
+  --card: #E2D9CD;
+  --accent: #FCF8F0;
+  --accent-text: #6B5B4D;   /* accent used for text on the page background */
+  --on-accent: #392E26;     /* text placed on top of the accent color */
   --border: #E2E8F0;
   --muted: #475569;
   color-scheme: light;
